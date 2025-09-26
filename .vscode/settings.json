@@ -4,7 +4,3 @@
     "editor.formatOnSave": true
   }
 }
-
-def   hello (name) 
-puts "Hello, #{name}!" 
-end
