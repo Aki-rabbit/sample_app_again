@@ -1,0 +1,44 @@
+# .rubocop.yml（todo なし運用・拡張読込・実用的な緩和付き）
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-capybara
+  - rubocop-performance
+  # （任意）RSpec の Rails 向け拡張も使うなら ↓ を Gemfile に追加後 require:
+  # - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.2
+  Exclude:
+    - "bin/**/*" # bin 以下は基本除外（長行等のノイズを避ける）
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "tmp/**/*"
+    - "test/**/*" # RSpec運用なら Minitest 配下は除外
+
+Metrics/BlockLength:
+  Exclude:
+    - "config/environments/*"
+
+# よく外す（Railsテンプレにドキュメンテーションは求めない）
+Style/Documentation:
+  Enabled: false
+
+# “# frozen_string_literal: true” を求めない（Rails新規プロジェクトは差分が多くなるため）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 長行はまずは少し緩める（後で締める）
+Layout/LineLength:
+  Max: 120
+
+# RSpec は緩め目から開始
+RSpec/ContextWording:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 3
