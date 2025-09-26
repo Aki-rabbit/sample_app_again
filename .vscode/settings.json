@@ -1,0 +1,10 @@
+{
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop",
+    "editor.formatOnSave": true
+  }
+}
+
+def   hello (name) 
+puts "Hello, #{name}!" 
+end
