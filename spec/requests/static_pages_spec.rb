@@ -9,6 +9,10 @@ RSpec.describe 'StaticPages', type: :request do
       it 'ステータスがsuccessになること' do
         expect(response).to have_http_status(:success)
       end
+
+      it 'タイトルが正しく表示されていること' do
+        expect(response.body).to include('<title>Home | Ruby on Rails Tutorial Sample App</title>')
+      end
     end
   end
 
@@ -19,6 +23,10 @@ RSpec.describe 'StaticPages', type: :request do
       it 'ステータスがsuccessになること' do
         expect(response).to have_http_status(:success)
       end
+
+      it 'タイトルが正しく表示されていること' do
+        expect(response.body).to include('<title>Help | Ruby on Rails Tutorial Sample App</title>')
+      end
     end
   end
 
@@ -28,6 +36,10 @@ RSpec.describe 'StaticPages', type: :request do
 
       it 'ステータスがsuccessになること' do
         expect(response).to have_http_status(:success)
+      end
+
+      it 'タイトルが正しく表示されていること' do
+        expect(response.body).to include('<title>About | Ruby on Rails Tutorial Sample App</title>')
       end
     end
   end
