@@ -10,8 +10,9 @@ RSpec.describe 'StaticPages', type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it 'タイトルが正しく表示されていること' do
-        expect(response.body).to include('<title>Home | Ruby on Rails Tutorial Sample App</title>')
+      it 'タイトルに"Home"が含まれていないこと' do
+        expect(response.body).to include('<title>Ruby on Rails Tutorial Sample App</title>')
+        expect(response.body).not_to include('Home')
       end
     end
   end
